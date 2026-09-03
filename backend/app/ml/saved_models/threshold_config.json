@@ -1,0 +1,19 @@
+{
+  "calibrated_threshold": 0.25,
+  "cost_per_fp_inr": 250.0,
+  "base_chargeback_fee_inr": 1000.0,
+  "feature_columns": [
+    "amount",
+    "log_amount",
+    "txn_velocity_1h",
+    "txn_velocity_24h",
+    "failed_attempts_30m",
+    "amount_ratio_merchant_avg",
+    "amount_ratio_customer_avg",
+    "time_since_prev_cust_txn_sec",
+    "time_since_prev_merch_txn_sec",
+    "disposable_email_flag",
+    "non_domestic_billing_flag",
+    "merchant_failure_rate_24h"
+  ]
+}

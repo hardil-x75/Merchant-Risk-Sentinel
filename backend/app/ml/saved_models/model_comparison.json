@@ -1,0 +1,28 @@
+{
+  "evaluation_scope": "HELD_OUT_TEST_SET",
+  "threshold_used": 0.25,
+  "comparison": [
+    {
+      "model_name": "Random Forest (Primary)",
+      "precision": 0.6211,
+      "recall": 0.9171,
+      "f1_score": 0.7406,
+      "accuracy": 0.938,
+      "false_positives": 108,
+      "false_negatives": 16,
+      "net_savings_inr": 1927465.28,
+      "status": "ACTIVE_PRIMARY"
+    },
+    {
+      "model_name": "Logistic Regression (Baseline)",
+      "precision": 0.5,
+      "recall": 0.9637,
+      "f1_score": 0.6584,
+      "accuracy": 0.9035,
+      "false_positives": 186,
+      "false_negatives": 7,
+      "net_savings_inr": 1935605.37,
+      "status": "BASELINE"
+    }
+  ]
+}
