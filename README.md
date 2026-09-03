@@ -105,15 +105,17 @@ Actual Fraudulent     FN = 16                 TP = 177
 ```
 
 ### Configurable Financial Cost Accounting
+> **DISCLAIMER:** Financial benchmark metrics represent simulated benchmark results using configurable cost parameters ($C_{\text{FP}}=\text{₹250.00}$, $C_{\text{chargeback}}=\text{₹1,000.00}$) and synthetic transaction streams. They do NOT represent actual Razorpay merchant savings or live production telemetry.
+
 - **Assumed Parameters (Configurable Benchmark Assumptions):**
   - False Positive Friction Cost ($C_{\text{FP}}$): **₹250.00** per false flag
   - Chargeback Penalty Fee ($C_{\text{chargeback}}$): **₹1,000.00** + Transaction Amount
-- **Financial Accounting Breakdown:**
-  - False Positive Friction Cost: **₹9,750.00**
-  - Unrecovered Chargeback Loss (4 Missed Frauds): **₹16,664.92**
-  - Total System Cost: **₹26,414.92**
-  - Baseline Loss (No Detection System): **₹2,502,763.21**
-  - **Net Merchant Financial Savings:** **₹2,476,348.29**
+- **Financial Accounting Breakdown (Held-Out Test Set):**
+  - False Positive Friction Cost ($108 \times \text{₹250}$): **₹27,000.00**
+  - Unrecovered Chargeback Loss (16 Missed Frauds): **₹55,255.95**
+  - Total System Cost: **₹82,255.95**
+  - Baseline Loss (No Detection System): **₹2,009,721.23**
+  - **Net Merchant Financial Savings:** **₹1,927,465.28**
 
 ---
 
@@ -121,7 +123,7 @@ Actual Fraudulent     FN = 16                 TP = 177
 
 To maintain complete engineering credibility for the Buildathon:
 1. **Synthetic Benchmark Dataset:** The dataset is synthetically generated using statistical distributions and controlled fraud scenarios. It does NOT contain live production payment telemetry from Razorpay.
-2. **Configurable Financial Assumptions:** Monetary savings (₹2.47M) depend on assumed friction ($C_{\text{FP}}=\text{₹250}$) and chargeback fees ($C_{\text{penalty}}=\text{₹1,000}$). Actual merchant savings vary by industry and transaction ticket size.
+2. **Configurable Financial Assumptions:** Monetary savings (₹1.93M) depend on assumed friction ($C_{\text{FP}}=\text{₹250}$) and chargeback fees ($C_{\text{penalty}}=\text{₹1,000}$). Actual merchant savings vary by industry and transaction ticket size.
 3. **Human Review Requirement:** High-impact defensive actions (such as delivery holds or account rate limits) are provided as recommendations for merchant review, not autonomous irreversible actions.
 4. **Periodic Retraining:** The Random Forest classifier assumes static temporal patterns and requires periodic retraining as merchant volume scales.
 
@@ -135,7 +137,7 @@ cd backend
 python -m app.ml.pipeline_runner
 ```
 
-### 2. Execute Test Suite (18/18 Tests Passing)
+### 2. Execute Test Suite (25/25 Tests Passing)
 ```bash
 cd backend
 python -m pytest tests/
